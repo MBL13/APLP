@@ -1,0 +1,37 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "doadores-app",
+          "appId": "1:888058212243:android:f05be783157d6871658266",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "doadores-app",
+          "configurations": {
+            "android": "1:888058212243:android:f05be783157d6871658266",
+            "ios": "1:888058212243:ios:7241baed6d00c7d0658266",
+            "web": "1:888058212243:web:72d6ba30da878787658266"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

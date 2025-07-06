@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "888058212243",
+    "project_id": "doadores-app",
+    "storage_bucket": "doadores-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888058212243:android:9c9b95da53fdbd45658266",
+        "android_client_info": {
+          "package_name": "com.aplp.doadores"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI2_AVuLoY23kIe1cWgkGIjFJ-3TSumrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888058212243:android:f05be783157d6871658266",
+        "android_client_info": {
+          "package_name": "com.example.projecto_aplp_final"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI2_AVuLoY23kIe1cWgkGIjFJ-3TSumrI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
