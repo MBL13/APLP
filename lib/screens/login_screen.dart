@@ -52,6 +52,9 @@ void _login() async {
     } else if (e.code == 'wrong-password') {
       msg = 'Senha incorreta.';
     }
+    else {
+      msg = e.code;
+    }
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(msg)),
     );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'firebase_options.dart'; 
+import 'package:flutter/foundation.dart';
+import 'dart:js' as js;
 
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
@@ -21,18 +23,28 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   print("🔔 Mensagem em background: ${message.notification?.title}");
 }
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  await initializeLocalNotifications();
+  // Só no web
+  if (kIsWeb) {
+    await FirebaseMessaging.instance.requestPermission();
+    await FirebaseMessaging.instance.getToken().then((token) {
+      print("FCM Token: $token");
+    });
 
+    js.context.callMethod('navigator.serviceWorker.register', [
+      'firebase-messaging-sw.js'
+    ]);
+  }
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -57,8 +69,6 @@ class MyApp extends StatelessWidget {
         '/buscar': (context) => const BuscarDoadoresScreen(),
         '/solicitacoes': (context) => const SolicitacoesScreen(),
         '/admin': (context) => const AdminScreen(),
-        
-
       },
     );
   }
